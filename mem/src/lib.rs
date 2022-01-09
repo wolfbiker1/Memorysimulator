@@ -1,4 +1,6 @@
 use std::{collections::HashMap, sync::Mutex};
+
+use colored::*;
 #[macro_use]
 extern crate lazy_static;
 
@@ -30,7 +32,14 @@ fn get_sorted_hashmap_as_vec() -> Vec<(u32, u32)> {
 
 pub fn dump_memory() {
     for (address, content) in get_sorted_hashmap_as_vec().into_iter().rev() {
-        println!("0x{:08x}: 0x{:08x}", address, content);
+        let address: String = format!("0x{:08x}", address);
+        let value: String = format!("0x{:08x}", content);
+
+        if content == 0x0000_0000 {
+            println!("{}: {}", address.white(), value.green());
+        } else {
+            println!("{}: {}", address.white(), value.bold().red());
+        }
     }
 }
 
