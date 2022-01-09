@@ -3,3 +3,7 @@ This application arose from the idea of developing a memory management system (d
 In order to prevent too many erase and write cycles for the flash memory I wrote this tool, which simulates the sram memory of
 the device in the best possible way. The project is still in the early stages, so the system only works with 4 byte aligned addresses so far.
 It offers basic write- and readoperations.
+
+
+
+![Colored Output](assets/demo.png)
